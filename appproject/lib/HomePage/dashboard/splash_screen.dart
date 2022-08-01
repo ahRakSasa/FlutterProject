@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:appproject/HomePage/dashboard/main_page.dart';
+import 'package:appproject/HomePage/dashboard/profile_page.dart';
 import 'package:appproject/HomePage/dashboard/welcome.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

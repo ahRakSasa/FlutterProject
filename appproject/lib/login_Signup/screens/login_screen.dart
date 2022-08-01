@@ -92,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
           hintStyle: TextStyle(color: Colors.white70),
+
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.amber, width: 2.0),
             borderRadius: BorderRadius.circular(10),
