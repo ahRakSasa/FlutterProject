@@ -1,20 +1,22 @@
+import 'package:appproject/HomePage/dashboard/detainpage.dart';
 import 'package:appproject/HomePage/dashboard/favorit_page.dart';
-import 'package:appproject/HomePage/dashboard/notification.dart';
+import 'package:appproject/HomePage/dashboard/profile_page.dart';
 import 'package:appproject/HomePage/dashboard/welcome.dart';
-import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/material.dart';
+
 import '../../login_Signup/screens/login_screen.dart';
 import '../../login_Signup/screens/registration_screen.dart';
 
-class ProfilePage extends StatefulWidget {
-  ProfilePage({Key? key}) : super(key: key);
+class NotificationPage extends StatefulWidget {
+  NotificationPage({Key? key}) : super(key: key);
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<NotificationPage> createState() => _NotificationPageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
-  int index = 0;
+class _NotificationPageState extends State<NotificationPage> {
+  int index = 3;
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[
@@ -59,7 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
           title: Text(
-        "profile",
+        "New List",
         style: TextStyle(fontSize: 20),
       )),
       body: _buildBody(),
@@ -69,38 +71,32 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _buildBody() {
     return Container(
-      margin: EdgeInsets.fromLTRB(130, 20, 0, 0),
-      // color: Colors.red,
-      child: Column(
-        children: [
-          CircleAvatar(
-            maxRadius: 45,
-            backgroundColor: Colors.black,
-            child: Icon(Icons.person, color: Colors.white, size: 50),
-          ),
-          Text(
-            "Name",
-            style: TextStyle(fontSize: 30),
-          ),
-          Text('Description'),
-          SizedBox(
-            height: 10,
-          ),
-          // buildGrid()
-        ],
-      ),
-    );
-  }
-
-  Widget buildGrid() {
-    return Container(
+      
       child: ListView(
-        children: [
-          Container(
-            color:Colors.black,
-            child: Icon(Icons.abc),
-          )
-        ],
+        children: List.generate(
+          20,
+          (index) {
+            return ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetainPage(),
+                  ),
+                );
+              },
+              child: ListTile(
+                
+                leading: Image.network(
+                  "https://i.guim.co.uk/img/media/a6795e6f75daa968c1154d4acedc091599c98474/0_299_4973_2984/master/4973.jpg?width=1200&quality=85&auto=format&fit=max&s=b641084777d2dedffc4dc6523078514d",
+                  width: 40,
+                ),
+                title: Text("food name"),
+                subtitle: Text("description"),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

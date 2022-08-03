@@ -3,6 +3,7 @@ import 'package:appproject/HomePage/constats/constants.dart';
 import 'package:appproject/HomePage/dashboard/detail_screen.dart';
 import 'package:appproject/HomePage/dashboard/favorit_page.dart';
 import 'package:appproject/HomePage/dashboard/home.dart';
+import 'package:appproject/HomePage/dashboard/notification.dart';
 import 'package:appproject/HomePage/dashboard/profile_page.dart';
 import 'package:appproject/HomePage/model/panda_pick_model/pandaPickHelper.dart';
 import 'package:appproject/HomePage/model/panda_pick_model/pandaPickItemModel.dart';
@@ -49,10 +50,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         },
       ),
       InkWell(
-        child: Icon(Icons.search, size: 30),
+        child: Icon(Icons.notifications_active, size: 30),
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => RegistrationScreen()));
+              MaterialPageRoute(builder: (context) => NotificationPage()));
         },
       ),
       InkWell(

@@ -1,3 +1,4 @@
+import 'package:appproject/HomePage/dashboard/notification.dart';
 import 'package:appproject/HomePage/dashboard/profile_page.dart';
 import 'package:appproject/HomePage/dashboard/welcome.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../login_Signup/screens/login_screen.dart';
 import '../../login_Signup/screens/registration_screen.dart';
+
 class FavoritPage extends StatefulWidget {
   FavoritPage({Key? key}) : super(key: key);
 
@@ -13,7 +15,7 @@ class FavoritPage extends StatefulWidget {
 }
 
 class _FavoritPageState extends State<FavoritPage> {
- int index = 1;
+  int index = 1;
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[
@@ -27,8 +29,8 @@ class _FavoritPageState extends State<FavoritPage> {
       InkWell(
         child: Icon(Icons.favorite, size: 30),
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => FavoritPage()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => FavoritPage()));
         },
       ),
       InkWell(
@@ -39,10 +41,10 @@ class _FavoritPageState extends State<FavoritPage> {
         },
       ),
       InkWell(
-        child: Icon(Icons.search, size: 30),
+        child: Icon(Icons.notifications_active, size: 30),
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => RegistrationScreen()));
+              MaterialPageRoute(builder: (context) => NotificationPage()));
         },
       ),
       InkWell(
@@ -56,7 +58,11 @@ class _FavoritPageState extends State<FavoritPage> {
     final height = MediaQuery.of(context).size.height * 1;
     final width = MediaQuery.of(context).size.width * 1;
     return Scaffold(
-      appBar: AppBar(title: Text("Favorite")),
+      appBar: AppBar(
+          title: Text(
+        "Favorite Food",
+        style: TextStyle(fontSize: 20),
+      )),
       body: _buildBody(),
       bottomNavigationBar: _buildBottomNavigationBar(items),
     );
@@ -64,7 +70,48 @@ class _FavoritPageState extends State<FavoritPage> {
 
   Widget _buildBody() {
     return Container(
-
+      padding: EdgeInsets.all(7),
+      child: GridView(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, mainAxisSpacing: 7, crossAxisSpacing: 7),
+        children: List.generate(
+          21,
+          (index) {
+            return Container(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: GridTile(
+                  child: Image.network(
+                    "https://codeprojects.org/Sh1SkfTBmbcc7QGUwE_c4VFE9BXiJZvAFSRYwxSR98Q/Fast-food.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                  footer: Container(
+                    padding: EdgeInsets.all(10),
+                    color: Colors.white,
+                    child: Stack(
+                      children: [
+                        Text(
+                          "food namelkdfa;fafrowruna",
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        Positioned(
+                          right: 0,
+                          
+                          child: Icon(Icons.favorite,color: Colors.red,))
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+      // child: GridTile(child: Container(color: Colors.black,child: Icon(Icons.abc),),),
     );
   }
 
