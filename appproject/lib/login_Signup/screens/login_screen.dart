@@ -49,13 +49,15 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           prefixIcon: Icon(
             Icons.mail,
-            color: Colors.white70,
+            color: Colors.amber,
           ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Email",
-          hintStyle: TextStyle(color: Colors.white70),
+          hintStyle: TextStyle(color: Colors.amber),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.amber, width: 2.0),
             borderRadius: BorderRadius.circular(10),
@@ -85,14 +87,15 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           prefixIcon: Icon(
             Icons.vpn_key,
-            color: Colors.white70,
+            color: Colors.amber,
           ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
-          hintStyle: TextStyle(color: Colors.white70),
-
+          hintStyle: TextStyle(color: Colors.amber),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.amber, width: 2.0),
             borderRadius: BorderRadius.circular(10),

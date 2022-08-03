@@ -49,13 +49,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           prefixIcon: Icon(
             Icons.account_circle,
-            color: Colors.white70,
+            color: Colors.black26,
           ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "First Name",
-          hintStyle: TextStyle(color: Colors.white70),
+          hintStyle: TextStyle(color: Colors.black26),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.amber, width: 2.0),
             borderRadius: BorderRadius.circular(10),
@@ -82,13 +84,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           prefixIcon: Icon(
             Icons.account_circle,
-            color: Colors.white70,
+            color: Colors.black26,
           ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Second Name",
-          hintStyle: TextStyle(color: Colors.white70),
+          hintStyle: TextStyle(color: Colors.black26),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.amber, width: 2.0),
             borderRadius: BorderRadius.circular(10),
@@ -120,13 +124,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           prefixIcon: Icon(
             Icons.mail,
-            color: Colors.white70,
+            color: Colors.black26,
           ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Email",
-          hintStyle: TextStyle(color: Colors.white70),
+          hintStyle: TextStyle(color: Colors.black26),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.amber, width: 2.0),
             borderRadius: BorderRadius.circular(10),
@@ -156,13 +162,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           prefixIcon: Icon(
             Icons.vpn_key,
-            color: Colors.white70,
+            color: Colors.black26,
           ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
-          hintStyle: TextStyle(color: Colors.white70),
+          hintStyle: TextStyle(color: Colors.black26),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.amber, width: 2.0),
             borderRadius: BorderRadius.circular(10),
@@ -190,13 +198,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
           prefixIcon: Icon(
             Icons.vpn_key,
-            color: Colors.white70,
+            color: Colors.black26,
           ),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Confirm Password",
-          hintStyle: TextStyle(color: Colors.white70),
+          hintStyle: TextStyle(color: Colors.black26),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.amber, width: 2.0),
             borderRadius: BorderRadius.circular(10),
