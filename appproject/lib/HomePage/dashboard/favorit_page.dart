@@ -1,3 +1,4 @@
+import 'package:appproject/HomePage/dashboard/insert_food_screen.dart';
 import 'package:appproject/HomePage/dashboard/notification.dart';
 import 'package:appproject/HomePage/dashboard/profile_page.dart';
 import 'package:appproject/HomePage/dashboard/welcome.dart';
@@ -51,7 +52,7 @@ class _FavoritPageState extends State<FavoritPage> {
         child: Icon(Icons.add, size: 30),
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginScreen()));
+              context, MaterialPageRoute(builder: (context) => InsertFoodScreen()));
         },
       ),
     ];

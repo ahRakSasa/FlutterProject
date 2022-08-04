@@ -1,5 +1,6 @@
 import 'package:appproject/HomePage/dashboard/detainpage.dart';
 import 'package:appproject/HomePage/dashboard/favorit_page.dart';
+import 'package:appproject/HomePage/dashboard/insert_food_screen.dart';
 import 'package:appproject/HomePage/dashboard/profile_page.dart';
 import 'package:appproject/HomePage/dashboard/welcome.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -52,7 +53,7 @@ class _NotificationPageState extends State<NotificationPage> {
         child: Icon(Icons.add, size: 30),
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LoginScreen()));
+              context, MaterialPageRoute(builder: (context) => InsertFoodScreen()));
         },
       ),
     ];

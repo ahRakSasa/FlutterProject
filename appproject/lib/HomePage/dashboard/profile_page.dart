@@ -69,39 +69,48 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _buildBody() {
     return Container(
-      margin: EdgeInsets.fromLTRB(130, 20, 0, 0),
+      // margin: EdgeInsets.fromLTRB(130, 20, 0, 0),
       // color: Colors.red,
-      child: Column(
-        children: [
-          CircleAvatar(
-            maxRadius: 45,
-            backgroundColor: Colors.black,
-            child: Icon(Icons.person, color: Colors.white, size: 50),
-          ),
-          Text(
-            "Name",
-            style: TextStyle(fontSize: 30),
-          ),
-          Text('Description'),
-          SizedBox(
-            height: 10,
-          ),
-          // buildGrid()
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              maxRadius: 45,
+              backgroundColor: Colors.black,
+              child: Icon(Icons.person, color: Colors.white, size: 50),
+            ),
+            Text(
+              "Name",
+              style: TextStyle(fontSize: 30),
+            ),
+            Text('Description'),
+            SizedBox(
+              height: 10,
+            ),
+            _buildGrid()
+          ],
+        ),
       ),
     );
   }
 
-  Widget buildGrid() {
-    return Container(
-      child: ListView(
-        children: [
-          Container(
-            color:Colors.black,
-            child: Icon(Icons.abc),
-          )
-        ],
+  Widget _buildGrid() {
+    return GridView.builder(
+      shrinkWrap: true,
+      padding: EdgeInsets.all(10),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        childAspectRatio: 4/6,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
       ),
+      itemCount: 9,
+      itemBuilder: (context, index) {
+        return Container(
+          color: Colors.black,
+        );
+      },
     );
   }
 
