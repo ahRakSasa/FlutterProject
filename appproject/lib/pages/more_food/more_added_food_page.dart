@@ -2,6 +2,7 @@ import 'package:appproject/logics/my_food_logic.dart';
 import 'package:appproject/model/more_food/my_food_model.dart';
 import 'package:appproject/pages/detail_page.dart';
 import 'package:appproject/pages/more_food/insert_food_screen.dart';
+import 'package:appproject/pages/more_food/update_food_page.dart';
 import 'package:appproject/pages/profile_page.dart';
 import 'package:appproject/pages/welcome.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -132,11 +133,11 @@ class _MoreAddedFoodPageState extends State<MoreAddedFoodPage> {
         children: [
           SlidableAction(
             onPressed: (ctx) {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (context) => UpdateProductPage(item),
-              //   ),
-              // );
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => UpdateFoodPage(item),
+                ),
+              );
             },
             backgroundColor: Colors.blue,
             foregroundColor: Colors.white,

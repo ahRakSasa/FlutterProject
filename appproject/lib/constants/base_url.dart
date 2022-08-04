@@ -6,4 +6,4 @@ const platform = realDevice;
 const readUrl = "http://$platform$port/mobile_project1/read.php";
 const deleteUrl = "http://$platform$port/mobile_project1/delete.php";
 const insertUrl = "http://$platform$port/mobile_project1/insert.php";
-// const updateUrl = "http://$platform$port/cadt7_mobile/update.php";
+const updateUrl = "http://$platform$port/mobile_project1/update.php";

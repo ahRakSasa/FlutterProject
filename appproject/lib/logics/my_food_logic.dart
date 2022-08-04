@@ -78,8 +78,7 @@ class MyFoodLogic extends ChangeNotifier {
     }
   }
 
-  /*
-  static Future<bool> update(Product item) async {
+  static Future<bool> update(MyFood item) async {
     final url = updateUrl;
     try {
       http.Response response = await http.post(Uri.parse(url), body: item.toJson());
@@ -98,6 +97,6 @@ class MyFoodLogic extends ChangeNotifier {
       print("Error while updating, ${e.toString()}");
       return false;
     }
-  }*/
+  }
 
 }
