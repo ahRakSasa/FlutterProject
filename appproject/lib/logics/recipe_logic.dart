@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:appproject/model/recipe/recipe_model.dart';
 import 'package:flutter/foundation.dart';
@@ -20,7 +21,7 @@ class RecipeLogic extends ChangeNotifier {
 
   Future<void> read() async {
     var uri = Uri.https('yummly2.p.rapidapi.com', '/feeds/list', {
-      "limit": "16",
+      "limit": "24",
       "start": "0",
     });
 

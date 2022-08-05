@@ -1,12 +1,10 @@
-import 'package:appproject/components/restaurant.dart';
 import 'package:appproject/constants/constants.dart';
-import 'package:appproject/model/exclusive_panda_model/exclusiveHelper.dart';
-import 'package:appproject/model/exclusive_panda_model/exclusive_item_model.dart';
-import 'package:appproject/model/panda_pick_model/pandaPickHelper.dart';
-import 'package:appproject/model/panda_pick_model/pandaPickItemModel.dart';
+import 'package:appproject/pages/food_page.dart';
+import 'package:appproject/pages/panda_exclusive_page.dart';
+import 'package:appproject/pages/panda_pick_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -98,32 +96,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   'Panda Pick',
                   style: TextStyle(
-                      color: Color(0xff323232),
-                      fontSize: 15,
-                      fontFamily: Bold),
+                    color: Color(0xff323232),
+                    fontSize: 15,
+                    fontFamily: Bold,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Container(
                     height: MediaQuery.of(context).size.height * .278,
-                    child: ListView.builder(
-                      itemCount: PandaPickHelper.itemCount,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        PandaPickItemModel model =
-                        PandaPickHelper.getStatusItem(index);
-                        return RestuarentScreen(
-                          name: model.name,
-                          image: model.image,
-                          remainingTime: model.remaingTime,
-                          totalRating: model.totalRating,
-                          subTitle: model.subTitle,
-                          rating: model.ratting,
-                          deliveryTime: model.remaingTime,
-                          deliveryPrice: model.deliveryPrice,
-                        );
-                      },
-                    ),
+                    child: PandaPickPage(),
                   ),
                 ),
                 Text(
@@ -138,24 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Container(
                     height: MediaQuery.of(context).size.height * .278,
-                    child: ListView.builder(
-                      itemCount: ExclusiveHelper.itemCount,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        ExclusiveItemModel model =
-                        ExclusiveHelper.getStatusItem(index);
-                        return RestuarentScreen(
-                          name: model.name,
-                          image: model.image,
-                          remainingTime: model.remaingTime,
-                          totalRating: model.totalRating,
-                          subTitle: model.subTitle,
-                          rating: model.rating,
-                          deliveryTime: model.remaingTime,
-                          deliveryPrice: model.deliveryPrice,
-                        );
-                      },
-                    ),
+                    child: PandaExclusivePage(),
                   ),
                 ),
                 Text(
@@ -171,24 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                     height: height * .5,
                     padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: ListView.builder(
-                      itemCount: ExclusiveHelper.itemCount,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        ExclusiveItemModel model =
-                        ExclusiveHelper.getStatusItem(index);
-                        return RestuarentScreen(
-                          name: model.name,
-                          image: model.image,
-                          remainingTime: model.remaingTime,
-                          totalRating: model.totalRating,
-                          subTitle: model.subTitle,
-                          rating: model.rating,
-                          deliveryTime: model.remaingTime,
-                          deliveryPrice: model.deliveryPrice,
-                        );
-                      },
-                    ),
+                    child: FoodPage(),
                   ),
                 ),
                 SizedBox(height: 20),

@@ -4,7 +4,7 @@ import 'package:appproject/pages/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class RestuarentScreen extends StatefulWidget {
+class RestuarantScreen extends StatefulWidget {
   final String name,
       image,
       remainingTime,
@@ -13,7 +13,8 @@ class RestuarentScreen extends StatefulWidget {
       deliveryTime,
       totalRating,
       deliveryPrice;
-  const RestuarentScreen(
+
+  const RestuarantScreen(
       {Key? key,
       required this.name,
       required this.image,
@@ -26,10 +27,10 @@ class RestuarentScreen extends StatefulWidget {
       : super(key: key);
 
   @override
-  _RestuarentScreenState createState() => _RestuarentScreenState();
+  _RestuarantScreenState createState() => _RestuarantScreenState();
 }
 
-class _RestuarentScreenState extends State<RestuarentScreen> {
+class _RestuarantScreenState extends State<RestuarantScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
@@ -75,9 +76,10 @@ class _RestuarentScreenState extends State<RestuarentScreen> {
                           child: Text(
                             "Flash 20% OFF",
                             style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                                fontFamily: Bold),
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontFamily: Bold,
+                            ),
                           ),
                         ),
                       ),
@@ -97,9 +99,10 @@ class _RestuarentScreenState extends State<RestuarentScreen> {
                             child: Text(
                               widget.remainingTime,
                               style: TextStyle(
-                                  color: blackColor,
-                                  fontSize: 12,
-                                  fontFamily: Bold),
+                                color: blackColor,
+                                fontSize: 12,
+                                fontFamily: Bold,
+                              ),
                             ),
                           ),
                         ),

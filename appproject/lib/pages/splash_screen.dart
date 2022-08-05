@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../logics/food_logic.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -21,6 +23,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 3), () async {
       await context.read<MyFoodLogic>().read();
       await context.read<RecipeLogic>().read();
+      await context.read<FoodLogic>().read();
+      await context.read<FoodLogic>().readPandaPick();
+      await context.read<FoodLogic>().readPandaExclusives();
+
       if (mounted) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(

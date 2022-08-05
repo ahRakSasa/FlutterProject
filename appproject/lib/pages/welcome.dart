@@ -1,13 +1,9 @@
 import 'package:appproject/components/restaurant.dart';
 import 'package:appproject/constants/constants.dart';
-import 'package:appproject/pages/detail_screen.dart';
 import 'package:appproject/pages/favorit_page.dart';
 import 'package:appproject/pages/home.dart';
-import 'package:appproject/pages/more_food/insert_food_screen.dart';
 import 'package:appproject/pages/more_food/more_added_food_page.dart';
-import 'package:appproject/pages/notification.dart';
 import 'package:appproject/pages/profile_page.dart';
-import 'package:appproject/pages/recipe/recipe_page.dart';
 import 'package:appproject/model/panda_pick_model/pandaPickHelper.dart';
 import 'package:appproject/model/panda_pick_model/pandaPickItemModel.dart';
 import 'package:appproject/pages/recipe/recipe_state_page.dart';
@@ -282,7 +278,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   ),
                                 ),
                                 Text(
-                                  'Everyday assentials',
+                                  'Everyday essentials',
                                   style: TextStyle(
                                     color: blackColor,
                                     fontWeight: FontWeight.w500,
@@ -319,7 +315,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   itemBuilder: (context, index) {
                     PandaPickItemModel model =
                         PandaPickHelper.getStatusItem(index);
-                    return RestuarentScreen(
+                    return RestuarantScreen(
                       name: model.name,
                       image: model.image,
                       remainingTime: model.remaingTime,
