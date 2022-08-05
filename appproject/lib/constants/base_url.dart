@@ -9,3 +9,6 @@ const deleteUrl = "http://$platform$port/mobile_project1/delete.php";
 const insertUrl = "http://$platform$port/mobile_project1/insert.php";
 const updateUrl = "http://$platform$port/mobile_project1/update.php";
 const readFavoriteFood = "http://$platform$port/mobile_project1/readfavoritefood.php";
+const insertFavoriteFood = "http://$platform$port/mobile_project1/insertFavoriteFood.php";
+const deleteFavoriteFood = "http://$platform$port/mobile_project1/deleteFavoriteFood.php";
+

@@ -1,4 +1,8 @@
+import 'package:appproject/logics/my_favorite_food_logic.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../components/snackBar.dart';
 
 class RecipeCard extends StatelessWidget {
   final String title;
@@ -91,7 +95,7 @@ class RecipeCard extends StatelessWidget {
                 ),
                 Container(
                   padding: const EdgeInsets.all(5),
-                  margin:const EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.4),
                     borderRadius: BorderRadius.circular(15),
@@ -114,7 +118,26 @@ class RecipeCard extends StatelessWidget {
               ],
             ),
           ),
-          const Positioned(child: Icon(Icons.favorite, color: Colors.red,), top: 5, right: 5,),
+          Positioned(
+            child: IconButton(
+              icon: Icon(
+                Icons.favorite,
+                color: Colors.red,
+              ),
+              onPressed: () async {
+                print("fav icon pressed");
+                bool success = await MyFavoriteFoodLogic.insert(this.title, this.thumbnailUrl);
+                if (success) {
+                  await context.read<MyFavoriteFoodLogic>().read();
+                  showSnackBar(context, "Added to favorite food list");
+                } else {
+                  showSnackBar(context, "Something went wrong while inserting");
+                }
+              },
+            ),
+            top: 5,
+            right: 5,
+          ),
         ],
       ),
     );

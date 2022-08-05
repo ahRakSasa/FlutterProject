@@ -22,6 +22,7 @@ class MyFavoriteFoodLogic extends ChangeNotifier {
     try {
       http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
+        print(response.body);
         _myFavoriteFoodModel = await compute(getFavoriteFoodModel, response.body);
         _status = LocalStatus.done;
       } else {
@@ -33,5 +34,50 @@ class MyFavoriteFoodLogic extends ChangeNotifier {
       _status = LocalStatus.error;
     }
     notifyListeners();
+  }
+
+  static Future<bool> delete(FavoriteFood item) async {
+    final url = deleteFavoriteFood;
+    try {
+      http.Response response =
+      await http.post(Uri.parse(url), body: item.toJson());
+      if (response.statusCode == 200) {
+        if (response.body.trim() == "delete_success") {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        print("Error while reading, ${response.statusCode}");
+        return false;
+      }
+    } catch (e) {
+      print("Error while reading, ${e.toString()}");
+      return false;
+    }
+  }
+
+  static Future<bool> insert(String name, String imageUrl) async {
+    FavoriteFood item = FavoriteFood(id: "", name: name, image: imageUrl);
+    final url = insertFavoriteFood;
+    try {
+      http.Response response =
+      await http.post(Uri.parse(url), body: item.toJson());
+      print(item.toJson());
+      if (response.statusCode == 200) {
+        print("response.body: ${response.body}");
+        if (response.body == "insert_success") {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        print("Error while inserting, ${response.statusCode}");
+        return false;
+      }
+    } catch (e) {
+      print("Error while inserting, ${e.toString()}");
+      return false;
+    }
   }
 }

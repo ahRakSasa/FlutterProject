@@ -18,7 +18,6 @@ class FavoritePage extends StatefulWidget {
 }
 
 class _FavoritePageState extends State<FavoritePage> {
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,10 +77,21 @@ class _FavoritePageState extends State<FavoritePage> {
                       ],
                     ),
                   ),
-                  const Positioned(
+                  Positioned(
                     right: 2,
                     bottom: 5,
-                    child: InkWell(child: Icon(Icons.favorite, color: Colors.red),),
+                    child: InkWell(
+                      onTap: () async {
+                        print("fav icon pressed");
+                        bool success = await MyFavoriteFoodLogic.delete(myfavortifood[index]);
+                        if (success) {
+                          await context.read<MyFavoriteFoodLogic>().read();
+                        } else {
+                          print("Delete Failed");
+                        }
+                      },
+                      child: Icon(Icons.favorite, color: Colors.red),
+                    ),
                   ),
                 ],
               ),
@@ -96,7 +106,7 @@ class _FavoritePageState extends State<FavoritePage> {
     );
   }
 
-  /*CurvedNavigationBar _buildBottomNavigationBar() {
+/*CurvedNavigationBar _buildBottomNavigationBar() {
     final items = <Widget>[
       InkWell(
         child: const Icon(Icons.person, size: 30),

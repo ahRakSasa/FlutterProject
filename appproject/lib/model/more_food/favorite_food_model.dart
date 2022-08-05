@@ -2,6 +2,7 @@ import 'dart:convert';
 
 MyFavoriteFoodModel getFavoriteFoodModel(String data) {
   Map<String, dynamic> map = json.decode(data);
+  print(map);
   return MyFavoriteFoodModel.fromJson(map);
 }
 
@@ -44,7 +45,7 @@ class FavoriteFood{
     final _data = <String , dynamic>{};
     _data['id'] = id;
     _data['name'] = name;
-    _data['image'] = image;
+    _data['Image'] = image;
     _data['description'] = description;
     return _data;
   }
