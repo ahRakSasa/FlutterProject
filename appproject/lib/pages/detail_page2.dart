@@ -172,7 +172,7 @@ class _DetailPage2State extends State<DetailPage2>
                           top: 0,
                           left: 5,
                           child: Container(
-                            color: Colors.grey.withOpacity(0.4),
+                            color: Colors.grey.withOpacity(0.7),
                             padding: const EdgeInsets.all(8.0),
                             margin: const EdgeInsets.all(8.0),
                             child: Text(
