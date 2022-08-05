@@ -33,7 +33,6 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   flutter:
     sdk: flutter
-  fluttertoast: ^8.0.9
   fancy_bottom_navigation: ^0.3.2
   http: ^0.13.5
   provider: ^6.0.3
