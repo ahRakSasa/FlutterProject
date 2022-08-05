@@ -2,7 +2,6 @@ import 'dart:convert';
 
 MyFavoriteFoodModel getFavoriteFoodModel(String data) {
   Map<String, dynamic> map = json.decode(data);
-  print(map);
   return MyFavoriteFoodModel.fromJson(map);
 }
 

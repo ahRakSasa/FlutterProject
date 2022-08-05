@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/favorit_page.dart';
+import '../pages/favorite_food_page.dart';
 import '../pages/more_food/more_added_food_page.dart';
 import '../pages/profile_page.dart';
 import '../pages/recipe/recipe_state_page.dart';

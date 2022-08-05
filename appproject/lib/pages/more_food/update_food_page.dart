@@ -1,5 +1,5 @@
 import 'package:appproject/logics/my_food_logic.dart';
-import 'package:appproject/model/more_food/my_food_model.dart';
+import 'package:appproject/model/my_food_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +25,7 @@ class _UpdateFoodPageState extends State<UpdateFoodPage> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: Colors.indigo,
+      backgroundColor: Colors.orange,
       title: Text("Update Product Page"),
       actions: [
         IconButton(

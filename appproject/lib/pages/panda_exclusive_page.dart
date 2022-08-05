@@ -1,5 +1,5 @@
 import 'package:appproject/logics/food_logic.dart';
-import 'package:appproject/model/food/food_model.dart';
+import 'package:appproject/model/food_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

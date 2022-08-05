@@ -1,4 +1,4 @@
-import 'package:appproject/model/more_food/my_food_model.dart';
+import 'package:appproject/model/my_food_model.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {

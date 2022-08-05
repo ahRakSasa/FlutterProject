@@ -1,19 +1,11 @@
-import 'package:appproject/components/restaurant.dart';
 import 'package:appproject/constants/constants.dart';
-import 'package:appproject/pages/favorit_page.dart';
 import 'package:appproject/pages/home.dart';
-import 'package:appproject/pages/more_food/more_added_food_page.dart';
 import 'package:appproject/pages/panda_pick_page.dart';
-import 'package:appproject/pages/profile_page.dart';
-import 'package:appproject/model/panda_pick_model/pandaPickHelper.dart';
-import 'package:appproject/model/panda_pick_model/pandaPickItemModel.dart';
 import 'package:appproject/pages/recipe/recipe_state_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-
-import '../utils/bottomnav_utils.dart';
+import '../components/bottom_utils.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -27,8 +19,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final height = MediaQuery.of(context).size.height * 1;
-    // final width = MediaQuery.of(context).size.width * 1;
+
     return Scaffold(
       appBar: _buildAppBar(),
       body: _buildBody(context),
@@ -261,18 +252,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               image: AssetImage('assets/food.jpg'),
                             ),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            color: Colors.grey.withOpacity(0.2),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Pick-Uo',
+                                  'Pick-Up',
                                   style: TextStyle(
                                     color: blackColor,
                                     fontFamily: Bold,
-                                    fontSize: 18,
+                                    fontSize: 20,
                                   ),
                                 ),
                                 Text(
@@ -405,7 +397,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             },
           ),
           ListTile(
-            title: const Text('Sign up or Login in',
+            title: const Text('Quit',
                 style: TextStyle(fontFamily: Medium, color: Colors.black)),
             leading: Icon(Icons.login_outlined, color: Colors.amber),
             onTap: () {

@@ -1,5 +1,5 @@
 import 'package:appproject/logics/my_food_logic.dart';
-import 'package:appproject/model/more_food/my_food_model.dart';
+import 'package:appproject/model/my_food_model.dart';
 import 'package:appproject/pages/profile_page.dart';
 import 'package:appproject/pages/welcome.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../components/snackBar.dart';
-import '../../utils/bottomnav_utils.dart';
-import '../favorit_page.dart';
+import '../../components/bottom_utils.dart';
+import '../favorite_food_page.dart';
 import '../notification.dart';
 
 class InsertFoodScreen extends StatefulWidget {

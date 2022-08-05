@@ -1,8 +1,8 @@
 import 'package:appproject/constants/constants.dart';
 import 'package:appproject/logics/my_food_logic.dart';
-import 'package:appproject/model/more_food/my_food_model.dart';
+import 'package:appproject/model/my_food_model.dart';
 import 'package:appproject/pages/detail_page.dart';
-import 'package:appproject/utils/bottomnav_utils.dart';
+import 'package:appproject/components/bottom_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    // final height = MediaQuery.of(context).size.height * 1;
-    // final width = MediaQuery.of(context).size.width * 1;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -123,11 +122,6 @@ class _ProfilePageState extends State<ProfilePage> {
                           style: TextStyle(fontWeight: FontWeight.w700),
                         ),
                       ),
-                      // Text(
-                      //   myfoodlist[index].description,
-                      //   maxLines: 2,
-                      //   overflow: TextOverflow.ellipsis,
-                      // ),
                     ],
                   ),
                 ),

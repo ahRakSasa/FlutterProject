@@ -1,13 +1,13 @@
 import 'package:appproject/constants/constants.dart';
 import 'package:appproject/logics/my_favorite_food_logic.dart';
-import 'package:appproject/model/more_food/favorite_food_model.dart';
+import 'package:appproject/model/favorite_food_model.dart';
 import 'package:appproject/pages/recipe/recipe_state_page.dart';
 import 'package:flutter/material.dart';
 import 'package:appproject/pages/profile_page.dart';
 import 'package:appproject/pages/welcome.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:provider/provider.dart';
-import '../utils/bottomnav_utils.dart';
+import '../components/bottom_utils.dart';
 import 'more_food/more_added_food_page.dart';
 
 class FavoritePage extends StatefulWidget {
@@ -22,10 +22,12 @@ class _FavoritePageState extends State<FavoritePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text(
-        "Favorite Food",
-        style: TextStyle(fontSize: 20),
-      )),
+        backgroundColor: Colors.orange,
+        title: const Text(
+          "Favorite Food",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
       body: _buildGrid(),
       bottomNavigationBar: buildBottomNavigationBar(context, 1),
     );
@@ -83,7 +85,8 @@ class _FavoritePageState extends State<FavoritePage> {
                     child: InkWell(
                       onTap: () async {
                         print("fav icon pressed");
-                        bool success = await MyFavoriteFoodLogic.delete(myfavortifood[index]);
+                        bool success = await MyFavoriteFoodLogic.delete(
+                            myfavortifood[index]);
                         if (success) {
                           await context.read<MyFavoriteFoodLogic>().read();
                         } else {

@@ -1,5 +1,5 @@
 import 'package:appproject/logics/my_food_logic.dart';
-import 'package:appproject/model/more_food/my_food_model.dart';
+import 'package:appproject/model/my_food_model.dart';
 import 'package:appproject/pages/detail_page.dart';
 import 'package:appproject/pages/more_food/insert_food_screen.dart';
 import 'package:appproject/pages/more_food/update_food_page.dart';
@@ -12,8 +12,8 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/local_status.dart';
-import '../../utils/bottomnav_utils.dart';
-import '../favorit_page.dart';
+import '../../components/bottom_utils.dart';
+import '../favorite_food_page.dart';
 import '../notification.dart';
 
 class MoreAddedFoodPage extends StatefulWidget {

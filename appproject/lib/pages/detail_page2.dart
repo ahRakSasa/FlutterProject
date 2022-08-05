@@ -1,6 +1,6 @@
 import 'package:appproject/constants/constants.dart';
 import 'package:appproject/logics/recipe_logic.dart';
-import 'package:appproject/model/recipe/recipe_model.dart';
+import 'package:appproject/model/recipe_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -183,7 +183,7 @@ class _RestuarantScreenState extends State<RestuarantScreen> {
                       color: MyColors.primaryColor,
                     ),
                     Text(
-                      r"  Rs  " + widget.deliveryPrice,
+                      r"  $  " + widget.deliveryPrice,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 12,

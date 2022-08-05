@@ -1,13 +1,13 @@
 import 'package:appproject/logics/recipe_logic.dart';
-import 'package:appproject/model/recipe/recipe_model.dart';
+import 'package:appproject/model/recipe_model.dart';
 import 'package:appproject/pages/recipe/recipe_card.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/local_status.dart';
-import '../../utils/bottomnav_utils.dart';
-import '../favorit_page.dart';
+import '../../components/bottom_utils.dart';
+import '../favorite_food_page.dart';
 import '../more_food/more_added_food_page.dart';
 import '../profile_page.dart';
 import '../welcome.dart';

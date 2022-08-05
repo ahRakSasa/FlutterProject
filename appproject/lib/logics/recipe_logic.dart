@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:appproject/model/recipe/recipe_model.dart';
+import 'package:appproject/model/recipe_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
@@ -26,7 +26,6 @@ class RecipeLogic extends ChangeNotifier {
     });
 
     try {
-      print("trying");
       final response = await http.get(uri, headers: {
         "X-RapidAPI-Key": "6003ace11emsh2f7d70cdacd9918p11f55djsnde6448aa709d",
         "X-RapidAPI-Host": "yummly2.p.rapidapi.com",
@@ -34,7 +33,6 @@ class RecipeLogic extends ChangeNotifier {
       });
 
       if (response.statusCode == 200) {
-        print("success");
         _status = LocalStatus.done;
 
         Map data = jsonDecode(response.body);

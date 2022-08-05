@@ -1,5 +1,5 @@
 import 'package:appproject/constants/local_status.dart';
-import 'package:appproject/model/more_food/my_food_model.dart';
+import 'package:appproject/model/my_food_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import '../constants/base_url.dart';
@@ -21,7 +21,6 @@ class MyFoodLogic extends ChangeNotifier {
     try {
       http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        print(response.body);
         _myFoodModel = await compute(getProductModel, response.body);
         _status = LocalStatus.done;
       } else {
@@ -85,7 +84,6 @@ class MyFoodLogic extends ChangeNotifier {
       http.Response response =
           await http.post(Uri.parse(url), body: item.toJson());
       if (response.statusCode == 200) {
-        print("response.body: ${response.body}");
         if (response.body.trim() == "update_success") {
           return true;
         } else {

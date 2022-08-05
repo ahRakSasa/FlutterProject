@@ -1,6 +1,6 @@
 import 'package:appproject/constants/base_url.dart';
 import 'package:appproject/constants/local_status.dart';
-import 'package:appproject/model/more_food/favorite_food_model.dart';
+import 'package:appproject/model/favorite_food_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,7 +22,6 @@ class MyFavoriteFoodLogic extends ChangeNotifier {
     try {
       http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        print(response.body);
         _myFavoriteFoodModel = await compute(getFavoriteFoodModel, response.body);
         _status = LocalStatus.done;
       } else {
@@ -65,7 +64,6 @@ class MyFavoriteFoodLogic extends ChangeNotifier {
       await http.post(Uri.parse(url), body: item.toJson());
       print(item.toJson());
       if (response.statusCode == 200) {
-        print("response.body: ${response.body}");
         if (response.body == "insert_success") {
           return true;
         } else {

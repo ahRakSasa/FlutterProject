@@ -1,7 +1,4 @@
-import 'package:appproject/model/more_food/my_food_model.dart';
-import 'package:appproject/pages/detail_page.dart';
-import 'package:appproject/pages/favorit_page.dart';
-import 'package:appproject/pages/more_food/insert_food_screen.dart';
+import 'package:appproject/pages/favorite_food_page.dart';
 import 'package:appproject/pages/profile_page.dart';
 import 'package:appproject/pages/recipe/recipe_state_page.dart';
 import 'package:appproject/pages/welcome.dart';
@@ -21,8 +18,7 @@ class _NotificationPageState extends State<NotificationPage> {
   int index = 3;
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height * 1;
-    final width = MediaQuery.of(context).size.width * 1;
+
     return Scaffold(
       appBar: AppBar(
           title: Text(

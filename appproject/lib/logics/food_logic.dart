@@ -1,5 +1,5 @@
-import 'package:appproject/model/food/food_model.dart';
-import 'package:appproject/model/panda_pick_model/panda_pick_model.dart';
+import 'package:appproject/model/food_model.dart';
+import 'package:appproject/model/panda_pick_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
