@@ -114,7 +114,7 @@ class RecipeCard extends StatelessWidget {
               ],
             ),
           ),
-          const Positioned(child: Icon(Icons.favorite, color: Colors.white,), top: 5, right: 5,),
+          const Positioned(child: Icon(Icons.favorite, color: Colors.red,), top: 5, right: 5,),
         ],
       ),
     );

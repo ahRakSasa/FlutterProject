@@ -30,14 +30,28 @@ class _DetailPageState extends State<DetailPage> {
               color: Colors.black,
               child: Text(
                 "${widget.item.name}",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Container(
               padding: EdgeInsets.all(20),
-              child: Text(
-                "${widget.item.description}",
-                style: TextStyle(fontSize: 16),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.6),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  "${widget.item.description}",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ],

@@ -27,6 +27,8 @@ CurvedNavigationBar buildBottomNavigationBar(BuildContext context, int current) 
   return CurvedNavigationBar(
     color: Colors.orange,
     buttonBackgroundColor: const Color.fromARGB(255, 31, 211, 211),
+    animationCurve: Curves.easeIn,
+    animationDuration: Duration(milliseconds: 2000),
     backgroundColor: Colors.amber,
     items: items,
     index: current,
@@ -34,7 +36,7 @@ CurvedNavigationBar buildBottomNavigationBar(BuildContext context, int current) 
     onTap: (index) {
       current = index;
       print("pushing");
-      Navigator.push(
+      Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => pages[current]));
     }
   );

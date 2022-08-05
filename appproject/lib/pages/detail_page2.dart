@@ -1,24 +1,28 @@
 import 'package:appproject/constants/constants.dart';
+import 'package:appproject/logics/recipe_logic.dart';
+import 'package:appproject/model/recipe/recipe_model.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 
 import 'package:scrollable_list_tabview/scrollable_list_tabview.dart';
 
-class DetailScreen extends StatefulWidget {
+class DetailPage2 extends StatefulWidget {
   final String name, image;
-  const DetailScreen({
+
+  const DetailPage2({
     Key? key,
     required this.name,
     required this.image,
   }) : super(key: key);
 
   @override
-  _DetailScreenState createState() => _DetailScreenState();
+  _DetailPage2State createState() => _DetailPage2State();
 }
 
-class _DetailScreenState extends State<DetailScreen>
+class _DetailPage2State extends State<DetailPage2>
     with SingleTickerProviderStateMixin {
   late TabController controller;
+
   @override
   void initState() {
     super.initState();
@@ -27,6 +31,9 @@ class _DetailScreenState extends State<DetailScreen>
 
   @override
   Widget build(BuildContext context) {
+
+    List<RecipeModel> _recipes = context.watch<RecipeLogic>().recipeModels;
+
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
@@ -54,14 +61,14 @@ class _DetailScreenState extends State<DetailScreen>
                         child: Image(
                             fit: BoxFit.cover, image: AssetImage(widget.image)),
                       ),
-                      // Padding(
-                      //   padding: const EdgeInsets.all(10.0),
-                      //   child: Text(
-                      //     widget.name,
-                      //     style: TextStyle(fontSize: 25.0),
-                      //     textAlign: TextAlign.left,
-                      //   ),
-                      // ),
+                      /*Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          widget.name,
+                          style: TextStyle(fontSize: 25.0),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),*/
                     ],
                   ),
                 ),
@@ -79,13 +86,14 @@ class _DetailScreenState extends State<DetailScreen>
             tabs: [
               ScrollableListTab(
                 tab: const ListTab(
-                    label: Text(
-                      'Popular',
-                      style: TextStyle(fontFamily: Bold),
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    activeBackgroundColor: Colors.amber,
-                    borderColor: Colors.amber),
+                  label: Text(
+                    'Popular',
+                    style: TextStyle(fontFamily: Bold),
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  activeBackgroundColor: Colors.amber,
+                  borderColor: Colors.amber,
+                ),
                 body: ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
@@ -95,22 +103,22 @@ class _DetailScreenState extends State<DetailScreen>
                     children: [
                       ListTile(
                         title: Text(
-                          'Chicken Tike Pizz',
+                          _recipes[index].name,
                           style: const TextStyle(fontFamily: Bold),
                         ),
-                        subtitle: Text("Onion, capsicum, tomat & olive"),
+                        subtitle: Text("Total Time - ${_recipes[index].totalTime}"),
                         trailing: Container(
                           height: 80,
                           width: 80,
                           alignment: Alignment.center,
-                          child: Image(image: AssetImage('assets/pizza.jpg')),
+                          child: Image(image: NetworkImage(_recipes[index].image)),
                         ),
                       ),
                       Row(
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Text("RS. 120.00"),
+                            child: Text("${_recipes[index].rating}K"),
                           ),
                           Container(
                             width: 90,
@@ -121,12 +129,13 @@ class _DetailScreenState extends State<DetailScreen>
                               child: Text(
                                 '🔥 Popular',
                                 style: TextStyle(
-                                    fontSize: 14,
-                                    color: blackColor,
-                                    fontFamily: Medium),
+                                  fontSize: 14,
+                                  color: blackColor,
+                                  fontFamily: Medium,
+                                ),
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                       Divider()
@@ -136,7 +145,10 @@ class _DetailScreenState extends State<DetailScreen>
               ),
               ScrollableListTab(
                 tab: const ListTab(
-                  label: Text('Favourite'),
+                  label: Text(
+                    'Favourite',
+                    style: TextStyle(fontFamily: Bold),
+                  ),
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   activeBackgroundColor: Colors.amber,
                   borderColor: Colors.amber,
@@ -153,18 +165,25 @@ class _DetailScreenState extends State<DetailScreen>
                       fit: StackFit.passthrough,
                       children: [
                         Image(
-                          fit: BoxFit.fitHeight,
-                          image: AssetImage('assets/cake.jpg'),
+                          fit: BoxFit.cover,
+                          image: NetworkImage(_recipes[index + 9].image),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            'Favoruite Deal 1',
-                            style: TextStyle(
+                        Positioned(
+                          top: 0,
+                          left: 5,
+                          child: Container(
+                            color: Colors.grey.withOpacity(0.4),
+                            padding: const EdgeInsets.all(8.0),
+                            margin: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Favorite Deal ${index + 1}',
+                              style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w900,
                                 fontSize: 18,
-                                fontFamily: Bold),
+                                fontFamily: Bold,
+                              ),
+                            ),
                           ),
                         ),
                         Positioned(
@@ -180,7 +199,7 @@ class _DetailScreenState extends State<DetailScreen>
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 5),
                                 child: Text(
-                                  'Rs. 180.00',
+                                  "${_recipes[index].rating}K",
                                   style: TextStyle(
                                       color: blackColor,
                                       fontSize: 12,

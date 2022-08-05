@@ -1,6 +1,6 @@
 import 'package:appproject/constants/color.dart';
 import 'package:appproject/constants/constants.dart';
-import 'package:appproject/pages/detail_screen.dart';
+import 'package:appproject/pages/detail_page2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -33,15 +33,21 @@ class RestuarantScreen extends StatefulWidget {
 class _RestuarantScreenState extends State<RestuarantScreen> {
   @override
   Widget build(BuildContext context) {
+
     final height = MediaQuery.of(context).size.height * 1;
     final width = MediaQuery.of(context).size.width * 1;
+
     return InkWell(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    DetailScreen(name: widget.name, image: widget.image)));
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailPage2(
+              name: widget.name,
+              image: widget.image,
+            ),
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 10),
@@ -56,20 +62,23 @@ class _RestuarantScreenState extends State<RestuarantScreen> {
                 Stack(
                   children: [
                     ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image(
-                            fit: BoxFit.cover,
-                            height: height * .2,
-                            image: AssetImage(widget.image))),
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image(
+                        fit: BoxFit.cover,
+                        height: height * .2,
+                        image: AssetImage(widget.image),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: Container(
                         decoration: const BoxDecoration(
-                            color: MyColors.primaryColor,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
-                            )),
+                          color: MyColors.primaryColor,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20),
+                          ),
+                        ),
                         child: const Padding(
                           padding: EdgeInsets.only(
                               top: 7, left: 5, right: 10, bottom: 7),
@@ -119,7 +128,10 @@ class _RestuarantScreenState extends State<RestuarantScreen> {
                     Text(
                       widget.name,
                       style: const TextStyle(
-                          color: Colors.white, fontSize: 14, fontFamily: Bold),
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontFamily: Bold,
+                      ),
                     ),
                     Row(
                       children: [
@@ -148,23 +160,19 @@ class _RestuarantScreenState extends State<RestuarantScreen> {
                               fontFamily: Light),
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
-                SizedBox(
-                  height: 3,
-                ),
-                SizedBox(
-                  height: 3,
-                ),
+                SizedBox(height: 3),
                 Text(
                   r"$ • " + widget.subTitle,
                   style: TextStyle(
-                      color: Colors.white, fontSize: 12, fontFamily: Regular),
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontFamily: Regular,
+                  ),
                 ),
-                SizedBox(
-                  height: 3,
-                ),
+                SizedBox(height: 3),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -177,12 +185,13 @@ class _RestuarantScreenState extends State<RestuarantScreen> {
                     Text(
                       r"  Rs  " + widget.deliveryPrice,
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontFamily: Regular),
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontFamily: Regular,
+                      ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

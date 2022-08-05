@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
-    final width = MediaQuery.of(context).size.width * 1;
+    // final width = MediaQuery.of(context).size.width * 1;
 
     return Scaffold(
       appBar: _buildAppBar(),
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: CupertinoTextField(
                   controller: _textController,
                   padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-                  placeholder: "asdf",
+                  placeholder: "",
                   prefix: Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: Icon(
