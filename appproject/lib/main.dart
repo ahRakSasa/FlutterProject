@@ -1,3 +1,4 @@
+import 'package:appproject/logics/my_favorite_food_logic.dart';
 import 'package:appproject/logics/my_food_logic.dart';
 import 'package:appproject/logics/recipe_logic.dart';
 import 'package:appproject/pages/splash_screen.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => MyFoodLogic()),
         ChangeNotifierProvider(create: (context) => RecipeLogic()),
+        ChangeNotifierProvider(create: (context) => MyFavoriteFoodLogic()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

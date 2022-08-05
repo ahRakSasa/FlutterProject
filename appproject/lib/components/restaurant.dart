@@ -63,14 +63,14 @@ class _RestuarentScreenState extends State<RestuarentScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: MyColors.primaryColor,
                             borderRadius: BorderRadius.only(
                               topRight: Radius.circular(20),
                               bottomRight: Radius.circular(20),
                             )),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
+                        child: const Padding(
+                          padding: EdgeInsets.only(
                               top: 7, left: 5, right: 10, bottom: 7),
                           child: Text(
                             "Flash 20% OFF",
@@ -89,14 +89,14 @@ class _RestuarentScreenState extends State<RestuarentScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: Color(0xfffffcff),
+                              color: const Color(0xfffffcff),
                               borderRadius: BorderRadius.circular(20.0)),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 5),
                             child: Text(
                               widget.remainingTime,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: blackColor,
                                   fontSize: 12,
                                   fontFamily: Bold),
@@ -107,7 +107,7 @@ class _RestuarentScreenState extends State<RestuarentScreen> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Row(
@@ -115,14 +115,14 @@ class _RestuarentScreenState extends State<RestuarentScreen> {
                   children: [
                     Text(
                       widget.name,
-                      style: TextStyle(
+                      style:const TextStyle(
                           color: Colors.white, fontSize: 14, fontFamily: Bold),
                     ),
                     Row(
                       children: [
                         RatingBarIndicator(
                           rating: 2.75,
-                          itemBuilder: (context, index) => Icon(
+                          itemBuilder: (context, index) =>const Icon(
                             Icons.star,
                             color: Colors.amber,
                           ),

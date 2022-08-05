@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:appproject/logics/my_favorite_food_logic.dart';
 import 'package:appproject/logics/my_food_logic.dart';
 import 'package:appproject/logics/recipe_logic.dart';
 import 'package:appproject/pages/welcome.dart';
@@ -16,11 +17,12 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
+  
     super.initState();
     Future.delayed(Duration(seconds: 3), () async {
       await context.read<MyFoodLogic>().read();
       await context.read<RecipeLogic>().read();
+      await context.read<MyFavoriteFoodLogic>().read();
       if (mounted) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(

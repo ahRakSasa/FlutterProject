@@ -1,8 +1,6 @@
 import 'package:appproject/pages/recipe/recipe_card.dart';
 import 'package:flutter/material.dart';
-
 import '../../model/recipe/recipe_api.dart';
-import '../../model/recipe/recipe_model.dart';
 
 class RecipePage extends StatefulWidget {
   const RecipePage({Key? key}) : super(key: key);
@@ -41,7 +39,7 @@ class _RecipePageState extends State<RecipePage> {
     return AppBar(
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Icon(Icons.restaurant_menu),
           SizedBox(width: 10),
           Text('Food Recipe'),

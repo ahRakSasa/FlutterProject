@@ -25,7 +25,7 @@ class RecipeCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.6),
-            offset: Offset(
+            offset: const Offset(
               0.0,
               10.0,
             ),
@@ -61,27 +61,28 @@ class RecipeCard extends StatelessWidget {
             alignment: Alignment.center,
           ),
           Align(
+            alignment: Alignment.bottomLeft,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.4),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.star,
                         color: Colors.yellow,
                         size: 18,
                       ),
-                      SizedBox(width: 7),
+                      const SizedBox(width: 7),
                       Text(
                         rating,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
@@ -89,32 +90,31 @@ class RecipeCard extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
+                  margin:const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.4),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.schedule,
                         color: Colors.yellow,
                         size: 18,
                       ),
-                      SizedBox(width: 7),
+                      const SizedBox(width: 7),
                       Text(
                         cookTime,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
                 )
               ],
             ),
-            alignment: Alignment.bottomLeft,
           ),
-          Positioned(child: Icon(Icons.favorite, color: Colors.white,), top: 5, right: 5,),
+          const Positioned(child: Icon(Icons.favorite, color: Colors.white,), top: 5, right: 5,),
         ],
       ),
     );
