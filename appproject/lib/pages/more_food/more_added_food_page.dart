@@ -4,6 +4,7 @@ import 'package:appproject/pages/detail_page.dart';
 import 'package:appproject/pages/more_food/insert_food_screen.dart';
 import 'package:appproject/pages/more_food/update_food_page.dart';
 import 'package:appproject/pages/profile_page.dart';
+import 'package:appproject/pages/recipe/recipe_state_page.dart';
 import 'package:appproject/pages/welcome.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -90,13 +91,10 @@ class _MoreAddedFoodPageState extends State<MoreAddedFoodPage> {
     );
   }
 
-  PageController _pageController = PageController();
-
   Widget _buildDisplay() {
     List<MyFood> myFoodList = context.watch<MyFoodLogic>().myFoodModel.myFood;
 
     return ListView.builder(
-      controller: _pageController,
       physics: BouncingScrollPhysics(),
       itemCount: myFoodList.length,
       itemBuilder: (context, index) {
@@ -164,6 +162,7 @@ class _MoreAddedFoodPageState extends State<MoreAddedFoodPage> {
         child: ListTile(
           leading: Image.network(item.imageUrl),
           title: Text("${item.name}"),
+          trailing: Icon(Icons.navigate_next),
         ),
       ),
     );
@@ -198,7 +197,7 @@ class _MoreAddedFoodPageState extends State<MoreAddedFoodPage> {
         child: Icon(Icons.notifications_active, size: 30),
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => NotificationPage()));
+              MaterialPageRoute(builder: (context) => RecipeStatePage()));
         },
       ),
       InkWell(

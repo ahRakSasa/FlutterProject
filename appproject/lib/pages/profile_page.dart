@@ -1,5 +1,6 @@
 import 'package:appproject/pages/favorit_page.dart';
 import 'package:appproject/pages/notification.dart';
+import 'package:appproject/pages/recipe/recipe_state_page.dart';
 import 'package:appproject/pages/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -42,7 +43,7 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Icon(Icons.notifications_active, size: 30),
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => NotificationPage()));
+              MaterialPageRoute(builder: (context) => RecipeStatePage()));
         },
       ),
       InkWell(

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:appproject/logics/my_food_logic.dart';
+import 'package:appproject/logics/recipe_logic.dart';
 import 'package:appproject/pages/welcome.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 3), () async {
       await context.read<MyFoodLogic>().read();
+      await context.read<RecipeLogic>().read();
       if (mounted) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(

@@ -10,6 +10,7 @@ import 'package:appproject/pages/profile_page.dart';
 import 'package:appproject/pages/recipe/recipe_page.dart';
 import 'package:appproject/model/panda_pick_model/pandaPickHelper.dart';
 import 'package:appproject/model/panda_pick_model/pandaPickItemModel.dart';
+import 'package:appproject/pages/recipe/recipe_state_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -48,7 +49,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => RecipePage(),
+                  builder: (context) => RecipeStatePage(),
                 ),
               );
             },
@@ -90,61 +91,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
-  CurvedNavigationBar _buildBottomNavigationBar() {
-    final items = <Widget>[
-      InkWell(
-        child: Icon(Icons.person, size: 30),
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ProfilePage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.favorite, size: 30),
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FavoritPage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.home, size: 30),
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => WelcomeScreen()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.notifications_active, size: 30),
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => NotificationPage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.list, size: 30),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MoreAddedFoodPage(),
-            ),
-          );
-        },
-      ),
-    ];
-    return CurvedNavigationBar(
-      color: Colors.amber,
-      buttonBackgroundColor: Color.fromARGB(255, 31, 211, 211),
-      backgroundColor: Colors.white,
-      items: items,
-      index: index,
-      height: 60,
-      onTap: (index) => setState(() => this.index = index),
-    );
-  }
-
   Widget _buildBody(BuildContext context) {
     return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: Column(
@@ -457,4 +406,58 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
     );
   }
+
+  CurvedNavigationBar _buildBottomNavigationBar() {
+    final items = <Widget>[
+      InkWell(
+        child: Icon(Icons.person, size: 30),
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ProfilePage()));
+        },
+      ),
+      InkWell(
+        child: Icon(Icons.favorite, size: 30),
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => FavoritPage()));
+        },
+      ),
+      InkWell(
+        child: Icon(Icons.home, size: 30),
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => WelcomeScreen()));
+        },
+      ),
+      InkWell(
+        child: Icon(Icons.notifications_active, size: 30),
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => RecipeStatePage()));
+        },
+      ),
+      InkWell(
+        child: Icon(Icons.list, size: 30),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MoreAddedFoodPage(),
+            ),
+          );
+        },
+      ),
+    ];
+    return CurvedNavigationBar(
+      color: Colors.amber,
+      buttonBackgroundColor: Color.fromARGB(255, 31, 211, 211),
+      backgroundColor: Colors.white,
+      items: items,
+      index: index,
+      height: 60,
+      onTap: (index) => setState(() => this.index = index),
+    );
+  }
+
 }

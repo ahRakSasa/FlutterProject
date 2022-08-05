@@ -114,6 +114,7 @@ class RecipeCard extends StatelessWidget {
             ),
             alignment: Alignment.bottomLeft,
           ),
+          Positioned(child: Icon(Icons.favorite, color: Colors.white,), top: 5, right: 5,),
         ],
       ),
     );

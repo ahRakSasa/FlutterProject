@@ -1,4 +1,5 @@
 import 'package:appproject/logics/my_food_logic.dart';
+import 'package:appproject/logics/recipe_logic.dart';
 import 'package:appproject/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:appproject/constants/color.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => MyFoodLogic()),
+        ChangeNotifierProvider(create: (context) => RecipeLogic()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

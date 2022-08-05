@@ -3,6 +3,7 @@ import 'package:appproject/pages/detail_page.dart';
 import 'package:appproject/pages/favorit_page.dart';
 import 'package:appproject/pages/more_food/insert_food_screen.dart';
 import 'package:appproject/pages/profile_page.dart';
+import 'package:appproject/pages/recipe/recipe_state_page.dart';
 import 'package:appproject/pages/welcome.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -20,47 +21,6 @@ class _NotificationPageState extends State<NotificationPage> {
   int index = 3;
   @override
   Widget build(BuildContext context) {
-    final items = <Widget>[
-      InkWell(
-        child: Icon(Icons.person, size: 30),
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ProfilePage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.favorite, size: 30),
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FavoritPage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.home, size: 30),
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => WelcomeScreen()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.notifications_active, size: 30),
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => NotificationPage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.list, size: 30),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MoreAddedFoodPage(),
-            ),
-          );
-        },
-      ),
-    ];
     final height = MediaQuery.of(context).size.height * 1;
     final width = MediaQuery.of(context).size.width * 1;
     return Scaffold(
@@ -70,7 +30,7 @@ class _NotificationPageState extends State<NotificationPage> {
         style: TextStyle(fontSize: 20),
       )),
       body: _buildBody(),
-      bottomNavigationBar: _buildBottomNavigationBar(items),
+      bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
@@ -106,7 +66,48 @@ class _NotificationPageState extends State<NotificationPage> {
     );
   }
 
-  CurvedNavigationBar _buildBottomNavigationBar(List<Widget> items) {
+  CurvedNavigationBar _buildBottomNavigationBar() {
+    final items = <Widget>[
+      InkWell(
+        child: Icon(Icons.person, size: 30),
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ProfilePage()));
+        },
+      ),
+      InkWell(
+        child: Icon(Icons.favorite, size: 30),
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => FavoritPage()));
+        },
+      ),
+      InkWell(
+        child: Icon(Icons.home, size: 30),
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => WelcomeScreen()));
+        },
+      ),
+      InkWell(
+        child: Icon(Icons.notifications_active, size: 30),
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => RecipeStatePage()));
+        },
+      ),
+      InkWell(
+        child: Icon(Icons.list, size: 30),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MoreAddedFoodPage(),
+            ),
+          );
+        },
+      ),
+    ];
     return CurvedNavigationBar(
       color: Colors.amber,
       buttonBackgroundColor: Color.fromARGB(255, 31, 211, 211),
