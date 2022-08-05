@@ -22,7 +22,7 @@ class MyFavoriteFoodLogic extends ChangeNotifier {
     try {
       http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        _myFavoriteFoodModel = await compute(getProductModel, response.body);
+        _myFavoriteFoodModel = await compute(getFavoriteFoodModel, response.body);
         _status = LocalStatus.done;
       } else {
         print("Error while reading, code: ${response.statusCode}");

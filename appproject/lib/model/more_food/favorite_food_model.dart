@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-MyFavoriteFoodModel getProductModel(String data) {
+MyFavoriteFoodModel getFavoriteFoodModel(String data) {
   Map<String, dynamic> map = json.decode(data);
   return MyFavoriteFoodModel.fromJson(map);
 }
@@ -9,21 +9,21 @@ class MyFavoriteFoodModel {
   MyFavoriteFoodModel({
     required this.favoritefoods,
   });
-  late final List<favoritefood> favoritefoods;
+  late final List<FavoriteFood> favoritefoods;
 
   MyFavoriteFoodModel.fromJson(Map<String, dynamic> json){
-    favoritefoods = List.from(json['favorite_food']).map((e) => favoritefood.fromJson(e)).toList();
+    favoritefoods = List.from(json['favoriteFood']).map((e) => FavoriteFood.fromJson(e)).toList();
   }
   Map<String, dynamic> toJson(){
     final _data = <String, dynamic>{};
-    _data['favorite_food'] = favoritefoods.map((e) => e.toJson()).toList();
+    _data['favoriteFood'] = favoritefoods.map((e) => e.toJson()).toList();
     return _data;
 
   } 
 }
 // ignore: camel_case_types
-class favoritefood{
-  favoritefood({
+class FavoriteFood{
+  FavoriteFood({
     required this.id,
     required this.name,
     required this.image,
@@ -34,7 +34,7 @@ class favoritefood{
   late final String image;
   late final String description;
   
-  favoritefood.fromJson(Map<String, dynamic> json){
+  FavoriteFood.fromJson(Map<String, dynamic> json){
     id = json['id'];
     name = json['name'];
     image = json ['image'];

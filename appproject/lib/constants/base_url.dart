@@ -1,7 +1,7 @@
 const android = "10.0.2.2";
 const ios = "localhost";
-// const realDevice = "192.168.1.13";
-const realDevice = "192.168.100.198";
+const realDevice = "192.168.1.13";
+// const realDevice = "192.168.100.198";
 const port = ":80";
 const platform = realDevice;
 const readUrl = "http://$platform$port/mobile_project1/read.php";

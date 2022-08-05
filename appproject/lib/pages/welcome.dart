@@ -3,6 +3,7 @@ import 'package:appproject/constants/constants.dart';
 import 'package:appproject/pages/favorit_page.dart';
 import 'package:appproject/pages/home.dart';
 import 'package:appproject/pages/more_food/more_added_food_page.dart';
+import 'package:appproject/pages/panda_pick_page.dart';
 import 'package:appproject/pages/profile_page.dart';
 import 'package:appproject/model/panda_pick_model/pandaPickHelper.dart';
 import 'package:appproject/model/panda_pick_model/pandaPickItemModel.dart';
@@ -11,6 +12,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
+import '../utils/bottomnav_utils.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -24,13 +27,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height * 1;
-    final width = MediaQuery.of(context).size.width * 1;
+    // final height = MediaQuery.of(context).size.height * 1;
+    // final width = MediaQuery.of(context).size.width * 1;
     return Scaffold(
       appBar: _buildAppBar(),
       body: _buildBody(context),
       drawer: _buildDrawer(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: buildBottomNavigationBar(context, 2),
     );
   }
 
@@ -40,6 +43,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         'Food Lists',
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
       ),
+      backgroundColor: Colors.orange,
       actions: [
         InkWell(
             onTap: () {
@@ -60,7 +64,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             children: [
               Expanded(
                 child: CupertinoTextField(
-                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                   placeholder: "Search for shop & restaurants",
                   prefix: Padding(
                     padding: const EdgeInsets.only(left: 10),
@@ -309,24 +313,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Container(
                 height: MediaQuery.of(context).size.height * .278,
-                child: ListView.builder(
-                  itemCount: PandaPickHelper.itemCount,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    PandaPickItemModel model =
-                        PandaPickHelper.getStatusItem(index);
-                    return RestuarantScreen(
-                      name: model.name,
-                      image: model.image,
-                      remainingTime: model.remaingTime,
-                      totalRating: model.totalRating,
-                      subTitle: model.subTitle,
-                      rating: model.ratting,
-                      deliveryTime: model.remaingTime,
-                      deliveryPrice: model.deliveryPrice,
-                    );
-                  },
-                ),
+                child: PandaPickPage(),
               ),
             ),
           ],
@@ -402,58 +389,4 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
     );
   }
-
-  CurvedNavigationBar _buildBottomNavigationBar() {
-    final items = <Widget>[
-      InkWell(
-        child: Icon(Icons.person, size: 30),
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ProfilePage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.favorite, size: 30),
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FavoritPage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.home, size: 30),
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => WelcomeScreen()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.notifications_active, size: 30),
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => RecipeStatePage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.list, size: 30),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MoreAddedFoodPage(),
-            ),
-          );
-        },
-      ),
-    ];
-    return CurvedNavigationBar(
-      color: Colors.amber,
-      buttonBackgroundColor: Color.fromARGB(255, 31, 211, 211),
-      backgroundColor: Colors.white,
-      items: items,
-      index: index,
-      height: 60,
-      onTap: (index) => setState(() => this.index = index),
-    );
-  }
-
 }

@@ -7,18 +7,17 @@ import 'package:appproject/pages/profile_page.dart';
 import 'package:appproject/pages/welcome.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:provider/provider.dart';
+import '../utils/bottomnav_utils.dart';
 import 'more_food/more_added_food_page.dart';
 
-class FavoritPage extends StatefulWidget {
-  const FavoritPage({Key? key}) : super(key: key);
+class FavoritePage extends StatefulWidget {
+  const FavoritePage({Key? key}) : super(key: key);
 
   @override
-  State<FavoritPage> createState() => _FavoritPageState();
+  State<FavoritePage> createState() => _FavoritePageState();
 }
 
-class _FavoritPageState extends State<FavoritPage> {
- 
-  int index = 1;
+class _FavoritePageState extends State<FavoritePage> {
  
   @override
   Widget build(BuildContext context) {
@@ -29,12 +28,12 @@ class _FavoritPageState extends State<FavoritPage> {
         style: TextStyle(fontSize: 20),
       )),
       body: _buildGrid(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: buildBottomNavigationBar(context, 1),
     );
   }
 
   Widget _buildGrid() {
-    List<favoritefood> myfavortifood =
+    List<FavoriteFood> myfavortifood =
         context.watch<MyFavoriteFoodLogic>().myfavoriteFoodModel.favoritefoods;
     return GridView.builder(
       shrinkWrap: true,
@@ -97,7 +96,7 @@ class _FavoritPageState extends State<FavoritPage> {
     );
   }
 
-  CurvedNavigationBar _buildBottomNavigationBar() {
+  /*CurvedNavigationBar _buildBottomNavigationBar() {
     final items = <Widget>[
       InkWell(
         child: const Icon(Icons.person, size: 30),
@@ -110,7 +109,7 @@ class _FavoritPageState extends State<FavoritPage> {
         child: const Icon(Icons.favorite, size: 30),
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => const FavoritPage()));
+              context, MaterialPageRoute(builder: (context) => const FavoritePage()));
         },
       ),
       InkWell(
@@ -148,5 +147,5 @@ class _FavoritPageState extends State<FavoritPage> {
       height: 60,
       onTap: (index) => setState(() => this.index = index),
     );
-  }
+  }*/
 }

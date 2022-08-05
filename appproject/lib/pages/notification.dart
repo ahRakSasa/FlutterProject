@@ -79,7 +79,7 @@ class _NotificationPageState extends State<NotificationPage> {
         child: Icon(Icons.favorite, size: 30),
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FavoritPage()));
+              context, MaterialPageRoute(builder: (context) => FavoritePage()));
         },
       ),
       InkWell(

@@ -98,18 +98,11 @@ class _RestuarantScreenState extends State<RestuarantScreen> {
                                 horizontal: 10, vertical: 5),
                             child: Text(
                               widget.remainingTime,
-<<<<<<< HEAD
                               style: const TextStyle(
-                                  color: blackColor,
-                                  fontSize: 12,
-                                  fontFamily: Bold),
-=======
-                              style: TextStyle(
                                 color: blackColor,
                                 fontSize: 12,
                                 fontFamily: Bold,
                               ),
->>>>>>> 8d19ae6635d3b45d5aab139d296be6f51bc7b272
                             ),
                           ),
                         ),
@@ -125,14 +118,14 @@ class _RestuarantScreenState extends State<RestuarantScreen> {
                   children: [
                     Text(
                       widget.name,
-                      style:const TextStyle(
+                      style: const TextStyle(
                           color: Colors.white, fontSize: 14, fontFamily: Bold),
                     ),
                     Row(
                       children: [
                         RatingBarIndicator(
                           rating: 2.75,
-                          itemBuilder: (context, index) =>const Icon(
+                          itemBuilder: (context, index) => const Icon(
                             Icons.star,
                             color: Colors.amber,
                           ),

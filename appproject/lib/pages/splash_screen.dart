@@ -24,14 +24,11 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 3), () async {
       await context.read<MyFoodLogic>().read();
       await context.read<RecipeLogic>().read();
-<<<<<<< HEAD
       await context.read<MyFavoriteFoodLogic>().read();
-=======
       await context.read<FoodLogic>().read();
       await context.read<FoodLogic>().readPandaPick();
       await context.read<FoodLogic>().readPandaExclusives();
 
->>>>>>> 8d19ae6635d3b45d5aab139d296be6f51bc7b272
       if (mounted) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(

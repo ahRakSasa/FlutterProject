@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/local_status.dart';
+import '../../utils/bottomnav_utils.dart';
 import '../favorit_page.dart';
 import '../more_food/more_added_food_page.dart';
 import '../profile_page.dart';
@@ -24,14 +25,14 @@ class _RecipeStatePageState extends State<RecipeStatePage> {
     return Scaffold(
       appBar: _buildAppBar(),
       body: _buildBody(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: buildBottomNavigationBar(context, 3),
     );
   }
 
   AppBar _buildAppBar() {
     return AppBar(
       title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Icon(Icons.restaurant_menu),
           SizedBox(width: 10),
@@ -119,7 +120,7 @@ class _RecipeStatePageState extends State<RecipeStatePage> {
         child: Icon(Icons.favorite, size: 30),
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FavoritPage()));
+              context, MaterialPageRoute(builder: (context) => FavoritePage()));
         },
       ),
       InkWell(

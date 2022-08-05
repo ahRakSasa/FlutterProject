@@ -12,6 +12,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/local_status.dart';
+import '../../utils/bottomnav_utils.dart';
 import '../favorit_page.dart';
 import '../notification.dart';
 
@@ -28,7 +29,7 @@ class _MoreAddedFoodPageState extends State<MoreAddedFoodPage> {
     return Scaffold(
       appBar: _buildAppBar(),
       body: _buildBody(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: buildBottomNavigationBar(context, 4),
     );
   }
 
@@ -165,58 +166,6 @@ class _MoreAddedFoodPageState extends State<MoreAddedFoodPage> {
           trailing: Icon(Icons.navigate_next),
         ),
       ),
-    );
-  }
-
-  int index = 4;
-
-  CurvedNavigationBar _buildBottomNavigationBar() {
-    final items = <Widget>[
-      InkWell(
-        child: Icon(Icons.person, size: 30),
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ProfilePage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.favorite, size: 30),
-        onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FavoritPage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.home, size: 30),
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => WelcomeScreen()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.notifications_active, size: 30),
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => RecipeStatePage()));
-        },
-      ),
-      InkWell(
-        child: Icon(Icons.list, size: 30),
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => MoreAddedFoodPage()));
-        },
-      ),
-    ];
-
-    return CurvedNavigationBar(
-      color: Colors.amber,
-      buttonBackgroundColor: Color.fromARGB(255, 31, 211, 211),
-      backgroundColor: Colors.white,
-      items: items,
-      index: index,
-      height: 60,
-      onTap: (index) => setState(() => this.index = index),
     );
   }
 }
